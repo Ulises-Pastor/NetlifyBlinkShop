@@ -19,6 +19,9 @@ export class LoginComponent {
     {
       if(resusuario.rol != -1)  //Compara si la consulta devuelve un json {rol : -1}
       {
+        console.log(resusuario)
+        localStorage.setItem('correo', resusuario[0].correo);
+        localStorage.setItem('id_Rol', resusuario[0].rol);
         if(resusuario[0].rol == 2){ //Compara si la consulta devuelve un arreglo [{correo : "xyz@gmail.com", rol : 1|2}]
           this.router.navigateByUrl('/home/usuario', resusuario[0].rol);    //Modo edicion
         } else{

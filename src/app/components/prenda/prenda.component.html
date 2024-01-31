@@ -18,7 +18,7 @@
         <td>{{prenda.descripcion}}</td>
         
         <td><a class="modal-trigger" href="#modalModificarPrenda" (click)="actualizarPrenda(prenda.clave)">  <i class="material-icons">edit</i></a></td>
-        <td><a class="modal-trigger" href="#modalModificarPrenda" (click)="actualizarPrenda(prenda.clave)">  <i class="material-icons">delete</i></a></td>
+        <td><a href="javascript: void(0);" class="space" (click)="eliminarPrenda(prenda.clave)">  <i class="material-icons">delete</i></a></td>
     </tr>
       
       </table>

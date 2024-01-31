@@ -1,6 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Usuario } from '../../../models/Usuario';
+import { Roles } from '../../../models/Roles';
 import { UsuarioService } from '../../services/usuario.service';
+import { RolesService } from '../../services/roles.service';
 import Swal from 'sweetalert2';
 declare const M: any;
 
@@ -12,14 +14,21 @@ declare const M: any;
 export class UsuarioComponent implements AfterViewInit {
   usuarios : Usuario [] = [];
   usuario : Usuario= new Usuario();
-  constructor(private usuarioService : UsuarioService) { }
+  roles : Roles[] = []
+
+  constructor(private usuarioService : UsuarioService, private rolesService : RolesService) { }
 
   ngAfterViewInit(): void {
     const modalElement1 = document.getElementById('modalModificarUsuario');
     M.Modal.init(modalElement1);
     this.usuarioService.list().subscribe((resUsuarios: any) =>
     {
-      this.usuarios = resUsuarios;  
+      this.usuarios = resUsuarios;
+      this.rolesService.list().subscribe((resRoles: any) =>
+      {
+        this.roles=resRoles
+        console.log(resRoles)
+      }, err => console.error(err)); 
       console.log(this.usuarios);
     },
     err => console.error(err)
@@ -51,5 +60,21 @@ export class UsuarioComponent implements AfterViewInit {
         text: 'Plan Actualizado'
         })
     }, err => console.error(err));
+  }
+
+  eliminarUsuario(id : any){
+    console.log(id);
+    this.usuarioService.eliminarUsuario(id).subscribe((resUsuario: any) =>
+    {
+      this.usuarioService.list().subscribe((resUsuarios: any) =>
+      {
+        this.usuarios = resUsuarios;  
+        console.log(this.usuarios);
+      },
+      err => console.error(err)
+      );
+    },
+    err => console.error(err)
+    );
   }
 }

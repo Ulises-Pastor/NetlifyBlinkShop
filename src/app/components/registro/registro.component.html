@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="login" class="brand-logo center">Blink Shop</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="login">Iniciar Sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+  <p></p>
+
+  <div class="loginContainer">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6 offset-s3">
+            <i class="material-icons prefix">account_circle</i>
+            <input class="validate" type="text" [(ngModel)]="usuario.nombre" name="nombre" id="nombre" placeholder="Nombre" autocomplete="off">
+
+          </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3">
+              <i class="material-icons prefix">mail</i>
+              <input class="validate" type="email" [(ngModel)]="usuario.correo" name="email" id="email" placeholder="Correo" autocomplete="off">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3">
+              <i class="material-icons prefix">vpn_key</i>
+              <input class="validate" type="password" [(ngModel)]="usuario.contrasena" name="password" id="password" placeholder="Contraseña" autocomplete="off">
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 offset-s3">
+            <i class="material-icons prefix">vpn_key</i>
+            <input class="validate" type="password" [(ngModel)]="validarContrasena" name="password2" id="password2" placeholder="Contraseña" autocomplete="off">
+          </div>
+        </div>
+      </form>
+      <div class="row col s6 offset-s5">
+        <button (click)="registro()" class="btn waves-effect waves-light col s4 offset-s4">Registrarse</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

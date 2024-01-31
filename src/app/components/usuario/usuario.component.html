@@ -16,7 +16,7 @@
           <td>{{usuario.correo}}</td>
         
           <td><a class="modal-trigger" href="#modalModificarUsuario" (click)="actualizarUsuario(usuario.id)">  <i class="material-icons">edit</i></a></td>
-          <td><a class="modal-trigger" href="#modalModificarUsuario" (click)="actualizarUsuario(usuario.id)">  <i class="material-icons">delete</i></a></td>
+          <td><a href="javascript: void(0);" class="space" (click)="eliminarUsuario(usuario.id)">  <i class="material-icons">delete</i></a></td>
         </tr>
       
       </table>
@@ -42,8 +42,12 @@
               <input   [(ngModel)]="usuario.contrasena"  type="password" class="validate">
             </div>
             <div class="input-field col s6">
-              <label class="active">Rol </label>
-              <input   [(ngModel)]="usuario.rol"  type="number" class="validate">
+              <label class="active">Rol</label>
+              <select [(ngModel)]='usuario.rol' class="browser-default">
+                <option *ngFor="let rol of roles" [value]="rol.id">
+                  {{rol.rol}}
+                </option>
+              </select>
             </div>
           </div>
           <div class="row">
