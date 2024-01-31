@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicia Sesión</title>
+</head>
+<body>
+
+  <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="login" class="brand-logo center">Blink Shop</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="registro">Registrarse</a></li>
+        <li><a href="collapsible.html">Ayuda</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="loginContainer">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6 offset-s3">
+            <i class="material-icons prefix">account_circle</i>
+            <input class="validate" type="email" [(ngModel)]="usuario.correo" name="email" id="email" placeholder="Correo" autocomplete="off">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 offset-s3">
+            <i class="material-icons prefix">vpn_key</i>
+            <input class="validate" type="password" name="password" id="password" [(ngModel)]="usuario.contrasena" placeholder="Contraseña" autocomplete="off">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m12 l12 divOlvide">
+            <a href="">Olvidé mi contraseña!</a>
+          </div>
+        </div>
+        <div class="row">
+          <button (click)="logueo()" class="btn waves-effect waves-light col s4 offset-s4">LOGIN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

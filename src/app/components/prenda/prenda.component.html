@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink Shop inicio</title>
+</head>
+<body>
+    <div class="loginContainer">
+      <table class="default" *ngIf="prendas != undefined">
+
+    <tr *ngFor="let prenda of prendas">
+      
+        <td>{{prenda.clave}}</td>
+      
+        <td>{{prenda.descripcion}}</td>
+
+        <td>{{prenda.descripcion}}</td>
+        
+        <td><a class="modal-trigger" href="#modalModificarPrenda" (click)="actualizarPrenda(prenda.clave)">  <i class="material-icons">edit</i></a></td>
+        <td><a class="modal-trigger" href="#modalModificarPrenda" (click)="actualizarPrenda(prenda.clave)">  <i class="material-icons">delete</i></a></td>
+    </tr>
+      
+      </table>
+    </div>
+      
+    
+    
+      <!-- Modal Structure -->
+      <div  id="modalModificarPrenda" class="modal">
+        <div class="modal-content">
+          <h4>Modificar Prenda</h4>
+          <div class="row">
+            <div class="input-field col s12">
+              <label class="active">Clave</label>
+              <input [(ngModel)]="prenda.clave" type="text" class="validate">
+            </div>
+            <div class="input-field col s12">
+              <label class="active">Descripcion </label>
+              <input [(ngModel)]="prenda.descripcion"  type="text" class="validate">
+            </div>
+            <div class="input-field col s6">
+              <label class="active">Precio unitario </label>
+              <input   [(ngModel)]="prenda.precio_unitario"  type="number" class="validate">
+            </div>
+            <div class="input-field col s6">
+              <label class="active">Rol </label>
+              <input   [(ngModel)]="prenda.id_genero"  type="number" class="validate">
+            </div>
+          </div>
+          <div class="row">
+        </div>
+      </div>
+        <div class="modal-footer">
+            <a class="modal-close btn-flat">Cancelar</a>
+            <a class="btn modal-close" (click)="guardarActualizarPrenda()">Modificar</a>
+        </div>
+      </div>
+      
+</body>
+</html>
