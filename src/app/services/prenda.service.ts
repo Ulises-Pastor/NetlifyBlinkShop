@@ -16,6 +16,10 @@ export class PrendaService {
     return this.http.get(`${environment.API_URI}/prendas/verPrenda/${clave}`);
   }
 
+  actualizarPrenda(clave : any, descripcion : any, id_tipo : any, id_genero : any, precio_unitario : any){
+    return this.http.put(`${environment.API_URI}/prendas/actualizarPrenda/${clave}`, {"clave": clave, "descripcion": descripcion, "id_tipo": id_tipo, "id_genero": id_genero, "precio_unitario" : precio_unitario});
+  }
+
   crearPrenda(clave : any, descripcion : any, id_tipo : any, id_genero : any, precio_unitario : any){ 
     return this.http.post(`${environment.API_URI}/prendas/nuevaPrenda/`, {"clave": clave, "descripcion": descripcion, "id_tipo": id_tipo, "id_genero": id_genero, "precio_unitario" : precio_unitario});
   }

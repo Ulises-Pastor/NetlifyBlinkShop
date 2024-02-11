@@ -12,6 +12,8 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 import { PrendaComponent } from './components/prenda/prenda.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { PrincipalComponent } from './components/principal/principal.component';
+import { NavprincipalComponent } from './components/navprincipal/navprincipal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { RegistroComponent } from './components/registro/registro.component';
     UsuarioComponent,
     PrendaComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    PrincipalComponent,
+    NavprincipalComponent
   ],
   imports: [
     BrowserModule,

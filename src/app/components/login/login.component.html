@@ -10,9 +10,9 @@
   <nav class="nav-extended">
     <div class="nav-wrapper">
       <a href="login" class="brand-logo center">Blink Shop</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="registro">Registrarse</a></li>
-      </ul>
+      </ul> -->
     </div>
   </nav>
 
@@ -39,9 +39,44 @@
           </div>
         </div>
         <div class="row">
-          <button (click)="logueo()" class="btn waves-effect waves-light col s4 offset-s4">LOGIN</button>
+          <button (click)="logueo()" class="btn waves-effect waves-light col s4 offset-s4">Entrar</button>
+        </div>
+        <div class="row">
+          <div class="divider col s6 offset-s3"></div>
+        </div>
+        <div class="row">
+          <button class="btn waves-effect waves-light modal-trigger col s4 offset-s4" href="#modalNuevoUsuario" (click)="limpiarUsuario( )">Registrarse</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div  id="modalNuevoUsuario" class="modal">
+    <div class="modal-content">
+      <h4>Registrarse</h4>
+      <div class="row">
+        <div class="input-field col s12">
+          <label>Nombre </label>
+          <input [(ngModel)]="nuevousuario.nombre" type="text" class="validate">
+        </div>
+        <div class="input-field col s12">
+          <label>Correo </label>
+          <input [(ngModel)]="nuevousuario.correo"  type="text" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label>Nueva Contraseña </label>
+          <input   [(ngModel)]="nuevousuario.contrasena"  type="password" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label>Confirmar Contraseña </label>
+          <input   [(ngModel)]="validarContrasena"  type="password" class="validate">
+        </div>
+      </div>
+  </div>
+    <div class="modal-footer">
+        <a class="modal-close btn-flat">Cancelar</a>
+        <a class="btn modal-close" (click)="nuevoUsuario()">Crear Usuario</a>
     </div>
   </div>
 

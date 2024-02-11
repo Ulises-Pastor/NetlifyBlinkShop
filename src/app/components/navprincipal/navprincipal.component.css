@@ -1,16 +1,6 @@
 @import '~material-design-icons/iconfont/material-icons.css';
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-main {
-    flex: 1 0 auto;
-}
-
-.page-footer{
+.nav-extended{
     background-color: rgb(198, 42, 198);
     padding-bottom: 0%;
 }

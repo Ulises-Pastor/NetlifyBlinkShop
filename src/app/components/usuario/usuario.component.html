@@ -6,58 +6,92 @@
     <title>Blink Shop inicio</title>
 </head>
 <body>
-    <div class="loginContainer">
-      <table class="default" *ngIf="usuarios != undefined">
+  <div class="divOlvide">
+    <a class="btn-floating modal-trigger btn-large waves-effect waves-light black" href="#modalNuevoUsuario" (click)="limpiarUsuario()"><i class="material-icons">add</i></a>
+  </div>
 
-        <tr *ngFor="let usuario of usuarios">
-      
-          <td>{{usuario.nombre}}</td>
-      
-          <td>{{usuario.correo}}</td>
-        
-          <td><a class="modal-trigger" href="#modalModificarUsuario" (click)="actualizarUsuario(usuario.id)">  <i class="material-icons">edit</i></a></td>
-          <td><a href="javascript: void(0);" class="space" (click)="eliminarUsuario(usuario.id)">  <i class="material-icons">delete</i></a></td>
-        </tr>
-      
-      </table>
+  <div class="loginContainer">
+    <table class="default" *ngIf="usuarios != undefined">
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.nombre}}</td>
+        <td>{{usuario.correo}}</td>
+        <td><a class="modal-trigger" href="#modalModificarUsuario" (click)="actualizarUsuario(usuario.id)">  <i class="material-icons">edit</i></a></td>
+        <td><a href="javascript: void(0);" class="space" (click)="eliminarUsuario(usuario.id)">  <i class="material-icons">delete</i></a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Modal Structure -->
+  <div  id="modalModificarUsuario" class="modal">
+    <div class="modal-content">
+      <h4>Modificar Usuario</h4>
+      <div class="row">
+        <div class="input-field col s12">
+          <label class="active">Nombre </label>
+          <input [(ngModel)]="usuario.nombre" type="text" class="validate">
+        </div>
+        <div class="input-field col s12">
+          <label class="active">Correo </label>
+          <input [(ngModel)]="usuario.correo"  type="text" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label class="active">Contraseña </label>
+          <input   [(ngModel)]="usuario.contrasena"  type="password" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label class="active">Rol</label>
+          <select [(ngModel)]='usuario.rol' class="browser-default">
+            <option *ngFor="let rol of roles" [value]="rol.id">
+              {{rol.rol}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
     </div>
-      
-    
-    
-      <!-- Modal Structure -->
-      <div  id="modalModificarUsuario" class="modal">
-        <div class="modal-content">
-          <h4>Modificar Usuario</h4>
-          <div class="row">
-            <div class="input-field col s12">
-              <label class="active">Nombre </label>
-              <input [(ngModel)]="usuario.nombre" type="text" class="validate">
-            </div>
-            <div class="input-field col s12">
-              <label class="active">Correo </label>
-              <input [(ngModel)]="usuario.correo"  type="text" class="validate">
-            </div>
-            <div class="input-field col s6">
-              <label class="active">Contraseña </label>
-              <input   [(ngModel)]="usuario.contrasena"  type="password" class="validate">
-            </div>
-            <div class="input-field col s6">
-              <label class="active">Rol</label>
-              <select [(ngModel)]='usuario.rol' class="browser-default">
-                <option *ngFor="let rol of roles" [value]="rol.id">
-                  {{rol.rol}}
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
+  </div>
+    <div class="modal-footer">
+        <a class="modal-close btn-flat">Cancelar</a>
+        <a class="btn modal-close" (click)="guardarActualizarUsuario()">Modificar</a>
+    </div>
+  </div>
+  
+
+  <!-- Modal Structure -->
+  <div  id="modalNuevoUsuario" class="modal">
+    <div class="modal-content">
+      <h4>Nuevo Usuario</h4>
+      <div class="row">
+        <div class="input-field col s12">
+          <label>Nombre </label>
+          <input [(ngModel)]="nuevousuario.nombre" type="text" class="validate">
+        </div>
+        <div class="input-field col s12">
+          <label>Correo </label>
+          <input [(ngModel)]="nuevousuario.correo"  type="text" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label>Nueva Contraseña </label>
+          <input   [(ngModel)]="nuevousuario.contrasena"  type="password" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label>Confirmar Contraseña </label>
+          <input   [(ngModel)]="validarContrasena"  type="password" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label class="active">Rol</label>
+          <select [(ngModel)]='nuevousuario.rol' class="browser-default">
+            <option *ngFor="let rol of roles" [value]="rol.id">
+              {{rol.rol}}
+            </option>
+          </select>
         </div>
       </div>
-        <div class="modal-footer">
-            <a class="modal-close btn-flat">Cancelar</a>
-            <a class="btn modal-close" (click)="guardarActualizarUsuario()">Modificar</a>
-        </div>
-      </div>
-      
+  </div>
+    <div class="modal-footer">
+        <a class="modal-close btn-flat">Cancelar</a>
+        <a class="btn modal-close" (click)="nuevoUsuario()">Crear Usuario</a>
+    </div>
+  </div>
 </body>
 </html>

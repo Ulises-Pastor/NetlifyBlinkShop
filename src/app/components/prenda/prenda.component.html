@@ -6,56 +6,106 @@
     <title>Blink Shop inicio</title>
 </head>
 <body>
-    <div class="loginContainer">
-      <table class="default" *ngIf="prendas != undefined">
 
-    <tr *ngFor="let prenda of prendas">
-      
-        <td>{{prenda.clave}}</td>
-      
-        <td>{{prenda.descripcion}}</td>
+  <div class="divOlvide">
+    <a class="btn-floating modal-trigger btn-large waves-effect waves-light pink" href="#modalNuevaPrenda" (click)="limpiarPrenda()"><i class="material-icons">add</i></a>
+  </div>
 
-        <td>{{prenda.descripcion}}</td>
-        
-        <td><a class="modal-trigger" href="#modalModificarPrenda" (click)="actualizarPrenda(prenda.clave)">  <i class="material-icons">edit</i></a></td>
-        <td><a href="javascript: void(0);" class="space" (click)="eliminarPrenda(prenda.clave)">  <i class="material-icons">delete</i></a></td>
-    </tr>
-      
-      </table>
+  <div class="loginContainer">
+    <table class="default" *ngIf="prendas != undefined">
+      <tr *ngFor="let prenda of prendas">
+          <td>{{prenda.clave}}</td>
+          <td>{{prenda.descripcion}}</td>
+          <td>{{prenda.precio_unitario}}</td>
+          <td><a class="modal-trigger" href="#modalModificarPrenda" (click)="actualizarPrenda(prenda.clave)">  <i class="material-icons">edit</i></a></td>
+          <td><a href="javascript: void(0);" class="space" (click)="eliminarPrenda(prenda.clave)">  <i class="material-icons">delete_forever</i></a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Modal Structure -->
+  <div  id="modalModificarPrenda" class="modal">
+    <div class="modal-content">
+      <h4>Modificar Prenda</h4>
+      <div class="row">
+        <div class="input-field col s12">
+          <label class="active">Clave</label>
+          <input [(ngModel)]="prenda.clave" type="text" class="validate">
+        </div>
+        <div class="input-field col s12">
+          <label class="active">Descripcion</label>
+          <input [(ngModel)]="prenda.descripcion"  type="text" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label class="active">Precio unitario</label>
+          <input   [(ngModel)]="prenda.precio_unitario"  type="number" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label class="active">Genero</label>
+          <select [(ngModel)]='prenda.id_genero' class="browser-default">
+            <option *ngFor="let genero of generos" [value]="genero.id">
+              {{genero.genero}}
+            </option>
+          </select>
+        </div>
+        <div class="input-field col s12">
+          <label class="active">Tipo</label>
+          <select [(ngModel)]='prenda.id_tipo' class="browser-default">
+            <option *ngFor="let tipo of tipos" [value]="tipo.id">
+              {{tipo.tipo_prenda}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
     </div>
-      
-    
-    
-      <!-- Modal Structure -->
-      <div  id="modalModificarPrenda" class="modal">
-        <div class="modal-content">
-          <h4>Modificar Prenda</h4>
-          <div class="row">
-            <div class="input-field col s12">
-              <label class="active">Clave</label>
-              <input [(ngModel)]="prenda.clave" type="text" class="validate">
-            </div>
-            <div class="input-field col s12">
-              <label class="active">Descripcion </label>
-              <input [(ngModel)]="prenda.descripcion"  type="text" class="validate">
-            </div>
-            <div class="input-field col s6">
-              <label class="active">Precio unitario </label>
-              <input   [(ngModel)]="prenda.precio_unitario"  type="number" class="validate">
-            </div>
-            <div class="input-field col s6">
-              <label class="active">Rol </label>
-              <input   [(ngModel)]="prenda.id_genero"  type="number" class="validate">
-            </div>
-          </div>
-          <div class="row">
+  </div>
+    <div class="modal-footer">
+        <a class="modal-close btn-flat">Cancelar</a>
+        <a class="btn modal-close" (click)="guardarActualizarPrenda()">Modificar</a>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div  id="modalNuevaPrenda" class="modal">
+    <div class="modal-content">
+      <h4>Nueva Prenda</h4>
+      <div class="row">
+        <div class="input-field col s12">
+          <label class="active">Clave</label>
+          <input [(ngModel)]="prenda.clave" type="text" class="validate">
         </div>
-      </div>
-        <div class="modal-footer">
-            <a class="modal-close btn-flat">Cancelar</a>
-            <a class="btn modal-close" (click)="guardarActualizarPrenda()">Modificar</a>
+        <div class="input-field col s12">
+          <label class="active">Descripcion </label>
+          <input [(ngModel)]="prenda.descripcion"  type="text" class="validate">
         </div>
-      </div>
-      
+        <div class="input-field col s6">
+          <label class="active">Precio unitario </label>
+          <input   [(ngModel)]="prenda.precio_unitario"  type="number" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label class="active">Genero</label>
+          <select [(ngModel)]='prenda.id_genero' class="browser-default">
+            <option *ngFor="let genero of generos" [value]="genero.id">
+              {{genero.genero}}
+            </option>
+          </select>
+        </div>
+        <div class="input-field col s12">
+          <label class="active">Tipo</label>
+          <select [(ngModel)]='prenda.id_tipo' class="browser-default">
+            <option *ngFor="let tipo of tipos" [value]="tipo.id">
+              {{tipo.tipo_prenda}}
+            </option>
+          </select>
+        </div>
+    </div>
+  </div>
+    <div class="modal-footer">
+        <a class="modal-close btn-flat">Cancelar</a>
+        <a class="btn modal-close" (click)="nuevaPrenda()">Crear Prenda</a>
+    </div>
+  </div>
+
 </body>
 </html>
