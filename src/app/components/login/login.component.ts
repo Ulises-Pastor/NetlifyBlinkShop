@@ -37,13 +37,13 @@ export class LoginComponent {
     {
       if(resusuario.rol != -1)  //Compara si la consulta devuelve un json {rol : -1}
       {
-        console.log(resusuario)
+        console.log(resusuario);
         localStorage.setItem('correo', resusuario[0].correo);
-        localStorage.setItem('id_Rol', resusuario[0].rol);
+        localStorage.setItem('id', resusuario[0].id);
         if(resusuario[0].rol == 3){ //Compara si la consulta devuelve un arreglo [{correo : "xyz@gmail.com", rol : 1|2}]
-          this.router.navigateByUrl('/home/usuario', resusuario[0].rol);    //Modo edicion
+          this.router.navigateByUrl('/home/usuario');    //Modo edicion
         } else{
-          this.router.navigateByUrl('/principal/prenda');   //Modo cliente
+          this.router.navigateByUrl('/principal/menuprendas');   //Modo cliente
         }
       } else{
         console.log("Error, usuario o contrasena no valida");
@@ -64,7 +64,7 @@ export class LoginComponent {
             icon: 'success',
             text: 'Bienvenido a Blink Shop!'
             })
-            this.router.navigateByUrl('/principal/prenda');   //Modo cliente
+            this.router.navigateByUrl('/principal/menuprendas');   //Modo cliente
         },
         err => console.error(err)
         );

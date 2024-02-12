@@ -1,18 +1,25 @@
 @import '~material-design-icons/iconfont/material-icons.css';
 
+body {
+    display: flex;
+    min-height: 67vh;
+    flex-direction: column;
+}
+
 .bodyLogin
 {
-    background: rgb(255, 232, 246);
+    background: rgb(252, 38, 170);
 }
 
 .divOlvide
 {
+    padding-top: 80px;
     text-align: center;
 }
 
 .loginContainer
 {
-    padding: 30px;
+    padding: 50px;
 }
 
 .btnLogin

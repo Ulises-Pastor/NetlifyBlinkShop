@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink Shop inicio</title>
+</head>
+<body>
+
+  <div class="loginContainer">
+    <table class="highlight" *ngIf="bolsa != undefined">
+      <thead>
+          <tr>
+              <th>Prenda</th>
+              <th>Talla</th>
+              <th>Unidades</th>
+              <th>Precio Unitario</th>
+              <th>Total</th>
+          </tr>
+      </thead>
+      <tr *ngFor="let prenda of bolsa">
+          <td>{{prenda.Prenda}}</td>
+          <td>{{prenda.Talla}}</td>
+          <td>{{prenda.unidades}}</td>
+          <td>{{prenda.precio_unitario}}</td>
+          <td>{{prenda.precio_total}}</td>
+          <td><a href="javascript: void(0);" class="space">  <i class="material-icons">delete_forever</i></a></td>
+      </tr>
+    </table>
+    <table class="default" *ngIf="bolsa.length == 0">
+        <tr>
+            <h5>Bolsa de compras vacia.</h5>
+        </tr>
+      </table>
+  </div>
+
+</body>
+</html>

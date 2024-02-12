@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink Shop inicio</title>
+</head>
+<body>
+
+  <div class="divOlvide">
+    <a class="btn-floating modal-trigger btn-large waves-effect waves-light green" href="#modalNuevoInventario" (click)="limpiarInventario()"><i class="material-icons">add</i></a>
+  </div>
+
+  <div class="loginContainer">
+    <table class="highlight" *ngIf="inventarios != undefined">
+      <tr *ngFor="let inventario of inventarios">
+          <td>{{inventario.Clave}}</td>
+          <td>{{inventario.Prenda}}</td>
+          <td>{{inventario.Talla}}</td>
+          <td>{{inventario.Unidades}}</td>
+          <td><a class="modal-trigger" href="#modalModificarPrenda" (click)="actualizarInventario(inventario.Clave)">  <i class="material-icons">edit</i></a></td>
+          <td><a href="javascript: void(0);" class="space" (click)="eliminarInventario(inventario.Clave, inventario.id_talla)">  <i class="material-icons">delete_forever</i></a></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Modal Structure -->
+  <div  id="modalNuevoInventario" class="modal">
+    <div class="modal-content">
+      <h4>Nuevo Inventario</h4>
+      <div class="row">
+        <div class="input-field col s4">
+            <label class="active">Prenda</label>
+            <select [(ngModel)]='nuevoinventario.clave_prenda' class="browser-default">
+              <option *ngFor="let prenda of prendas" [value]="prenda.clave">
+                {{prenda.clave}}
+              </option>
+            </select>
+        </div>
+        <div class="input-field col s4">
+            <label class="active">Talla</label>
+            <select [(ngModel)]='nuevoinventario.id_talla' class="browser-default">
+              <option *ngFor="let talla of tallas" [value]="talla.id">
+                {{talla.talla_prenda}}
+              </option>
+            </select>
+        </div>
+        <div class="input-field col s4">
+            <label class="active">Unidades</label>
+            <select [(ngModel)]='nuevoinventario.unidades' class="browser-default">
+              <option *ngFor="let unidad of unidades" [value]="unidad">
+                {{unidad}}
+              </option>
+            </select>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close btn-flat">Cancelar</a>
+        <a class="btn modal-close" (click)="nuevoInventario()">Agregar Unidades</a>
+    </div>
+  </div>
+
+</body>
+</html>

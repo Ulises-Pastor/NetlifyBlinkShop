@@ -11,9 +11,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { PrendaComponent } from './components/prenda/prenda.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegistroComponent } from './components/registro/registro.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { NavprincipalComponent } from './components/navprincipal/navprincipal.component';
+import { InventarioComponent } from './components/inventario/inventario.component';
+import { VentasComponent } from './components/ventas/ventas.component';
+import { BolsadecomprasComponent } from './components/bolsadecompras/bolsadecompras.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { MenuprendasComponent } from './components/menuprendas/menuprendas.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +28,13 @@ import { NavprincipalComponent } from './components/navprincipal/navprincipal.co
     UsuarioComponent,
     PrendaComponent,
     LoginComponent,
-    RegistroComponent,
     PrincipalComponent,
-    NavprincipalComponent
+    NavprincipalComponent,
+    InventarioComponent,
+    VentasComponent,
+    BolsadecomprasComponent,
+    PedidosComponent,
+    MenuprendasComponent
   ],
   imports: [
     BrowserModule,

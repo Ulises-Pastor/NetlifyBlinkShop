@@ -11,5 +11,9 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  logout(){
+    localStorage.removeItem("id")
+    localStorage.removeItem("correo")
+  }
 
 }

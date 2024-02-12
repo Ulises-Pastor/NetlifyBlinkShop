@@ -3,16 +3,14 @@
     <div class="nav-wrapper">
       <a href="home/usuario" class="brand-logo center">Blink Shop</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="login">Atención al cliente</a></li>
-        <li><a href="login">Cerrar Sesión</a></li>
+        <li><a href="login" (click)="logout()">Cerrar Sesión</a></li>
       </ul>
     </div>
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
-        <li class="tab"><a routerLink="/usuario">Mi perfil</a></li>
         <li class="tab"><a class="active" href="home/usuario">Usuarios</a></li>
         <li class="tab"><a href="home/prenda">Prendas</a></li>
-        <li class="tab"><a href="#test4">Ventas</a></li>
+        <li class="tab"><a href="home/inventario">Inventario</a></li>
       </ul>
     </div>
   </nav>

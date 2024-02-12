@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Principal</title>
+</head>
+<body>
+
+  <div class="divOlvide">
+    <h4>Top vendidas</h4>
+  </div>
+
+  <div *ngFor="let chunk of chunkArray(prendas, 4)">
+    <div class="row">
+      <div class="col s3" *ngFor="let prenda of chunk">
+        <div class="card">
+          <div class="card-image">
+            <img [src]="'../../../assets/images/' + seleccionarImagenAlAzar(prenda.id_tipo)" alt="Imagen al azar">
+            <span class="card-title">${{prenda.precio_unitario}}</span>
+            <a class="btn-floating modal-trigger halfway-fab waves-effect waves-light pink" href="#modalAgregarABolsa" (click)="verExistencia(prenda.clave)"><i class="material-icons">add_shopping_cart</i></a>
+          </div>
+          <div class="card-content">
+            <p>{{prenda.descripcion}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div  id="modalAgregarABolsa" class="modal">
+    <div class="modal-content">
+      <h4>Agregar a mi bolsa de compras</h4>
+      <div class="row">
+        <div class="input-field col s6">
+          <label class="active">Talla</label>
+          <select [(ngModel)]='prendabolsa.id_talla' class="browser-default">
+            <option *ngFor="let existe of existencia" [value]="existe.id_talla">
+              {{existe.Talla}}
+            </option>
+          </select>
+        </div>
+        <div class="input-field col s12">
+          <label class="active">Unidades</label>
+          <select [(ngModel)]='prendabolsa.unidades' class="browser-default">
+            <option *ngFor="let i of [1,2,3]" [value]="i">
+              {{i}}
+            </option>
+          </select>
+        </div>
+      </div>
+  </div>
+    <div class="modal-footer">
+        <a class="modal-close btn-flat">Cancelar</a>
+        <a class="btn modal-close" (click)="agregarABolsa()">Agregar</a>
+    </div>
+  </div>
+
+</body>
+</html>

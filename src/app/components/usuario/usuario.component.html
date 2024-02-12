@@ -11,7 +11,7 @@
   </div>
 
   <div class="loginContainer">
-    <table class="default" *ngIf="usuarios != undefined">
+    <table class="highlight" *ngIf="usuarios != undefined">
       <tr *ngFor="let usuario of usuarios">
         <td>{{usuario.nombre}}</td>
         <td>{{usuario.correo}}</td>
@@ -46,8 +46,6 @@
             </option>
           </select>
         </div>
-      </div>
-      <div class="row">
     </div>
   </div>
     <div class="modal-footer">
